@@ -1,0 +1,6 @@
+C:\Users\User\Desktop\Try_To_Work\Brick\test\test\bin\Debug\test.exe.config
+C:\Users\User\Desktop\Try_To_Work\Brick\test\test\bin\Debug\test.exe
+C:\Users\User\Desktop\Try_To_Work\Brick\test\test\bin\Debug\test.pdb
+C:\Users\User\Desktop\Try_To_Work\Brick\test\test\obj\Debug\test.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\Try_To_Work\Brick\test\test\obj\Debug\test.exe
+C:\Users\User\Desktop\Try_To_Work\Brick\test\test\obj\Debug\test.pdb
