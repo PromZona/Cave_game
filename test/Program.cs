@@ -89,6 +89,9 @@ namespace test
                 case "Генерация":
                     Generate();
                     break;
+                case "Помощь":
+                    Help();
+                    break;
                 case "Параметры":
                     Character.ReturnHeroStats(ControlHero);
                     break;
@@ -120,7 +123,14 @@ namespace test
             ControlHero.WearEquip(ControlHero.equipment);
             Console.WriteLine("Экипировка сгенерирована");
         }
-
+        public static void Help()
+        {
+            Console.WriteLine("Выход - Выйти из приложения");
+            Console.WriteLine("Урон - нанести себе 10 урона");
+            Console.WriteLine("Генерация - Создает вам случайную экипировку");
+            Console.WriteLine("Параметры - вывести все характеристики персонажа");
+            Console.WriteLine("Лечиться - лечит вашего персонажа до максимума за 10 монет");
+        }
     }
 
     public class Character
@@ -212,30 +222,36 @@ namespace test
             Console.WriteLine("Твои предметы: Название / Урон / Качество");
             for (int i = 0; i < Hero.equipment.Length; i++)
             {
+                try { 
                 Console.WriteLine();
                 Console.Write(Hero.equipment[i].GetEquipType +" "+ Hero.equipment[i].Name + " Урон: " + Hero.equipment[i].BonusDamage + " Качество: ");
-                switch (Hero.equipment[i].GetEquipQuality)
+                    switch (Hero.equipment[i].GetEquipQuality)
+                    {
+                        case EquipQuality.Common:
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                            Console.WriteLine("Обычное");
+                            Console.ResetColor();
+                            break;
+                        case EquipQuality.Legendary:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Легендарное");
+                            Console.ResetColor();
+                            break;
+                        case EquipQuality.Mystic:
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine("Мистическое");
+                            Console.ResetColor();
+                            break;
+                        case EquipQuality.Rare:
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            Console.WriteLine("Редкое");
+                            Console.ResetColor();
+                            break;
+                    }
+                }
+                catch
                 {
-                    case EquipQuality.Common:
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.WriteLine("Обычное");
-                        Console.ResetColor();
-                        break;
-                    case EquipQuality.Legendary:
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Легендарное");
-                        Console.ResetColor();
-                        break;
-                    case EquipQuality.Mystic:
-                        Console.ForegroundColor = ConsoleColor.Magenta;
-                        Console.WriteLine("Мистическое");
-                        Console.ResetColor();
-                        break;
-                    case EquipQuality.Rare:
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("Редкое");
-                        Console.ResetColor();
-                        break;
+                    Console.WriteLine("У вас еще нет предмета");
                 }
             }
         }
