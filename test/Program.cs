@@ -386,7 +386,7 @@ namespace test
     {
         static public int CaveDifficult = 1;
 
-        public void Fight(Character hero)
+        public Enemy CreateEnemy()
         {
             Enemy enemy = new Enemy()
             {
@@ -394,7 +394,7 @@ namespace test
                 Health = Convert.ToInt32(100 * (CaveDifficult * 0.25)),
                 Damage = 10 * CaveDifficult
             };
-
+            return enemy;
         }
     }
 
