@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace test
 {
     class Program
     {
         static void Main(string[] args)
-        {
-            
+        {           
             Character Hero = new Character()
             {
                 MaxHealth = 100,
@@ -22,7 +22,8 @@ namespace test
             //Основной игровой цикл
             Game:
             do
-            {           
+            {   
+                       
                 Console.WriteLine("Введите команду. Список команд - <Помощь>");
                 Controller.ReadCommand();
             } while (Controller.WantExit == false);
@@ -103,6 +104,12 @@ namespace test
                     else
                         Console.WriteLine("У вас максимально здоровья");
                     break;
+                case "Город":
+                    ControlHero.GoInTown();
+                    break;
+                case "Пещера":
+                    ControlHero.GoInCave();
+                    break;
                 default:
                     Console.WriteLine("Команду не определить.");
                     break;
@@ -129,7 +136,50 @@ namespace test
             Console.WriteLine("Урон - нанести себе 10 урона");
             Console.WriteLine("Генерация - Создает вам случайную экипировку");
             Console.WriteLine("Параметры - вывести все характеристики персонажа");
-            Console.WriteLine("Лечиться - лечит вашего персонажа до максимума за 10 монет");
+            Console.WriteLine("Лечиться - лечит вашего персонажа до максимума за 10 монет. Только в городе");
+            Console.WriteLine("Город - чтобы отправиться в город. При условии что вы не находитесь в нем");
+            Console.WriteLine("Пещера - чтобы отправиться в пещеру, если вы не в ней");
+        }
+    }
+
+    public class Enemy
+    {
+        private double health;
+        private int maxhealth;
+        private double damage;
+
+        public double Health
+        {
+            get
+            {
+                return health;
+            }
+            set
+            {
+                health = value;
+            }
+        }
+        public int MaxHealth
+        {
+            get
+            {
+                return maxhealth;
+            }
+            set
+            {
+                maxhealth = value;
+            }
+        }
+        public double Damage
+        {
+            get
+            {
+                return damage;
+            }
+            set
+            {
+                damage = value;
+            }
         }
     }
 
@@ -197,14 +247,31 @@ namespace test
             }
         }
 
-        private void GoInTown()
+        public void GoInTown()
         {
-            place = Place.Town;
+            if (Place.Cave == place)
+            {
+                place = Place.Town;
+                Console.WriteLine("Ты пощел в город... Поздравляю!!! Ты в городе");
+            }
+            else
+            {
+                Console.WriteLine("Ты уже в городе");
+            }
         }
 
-        private void GoInCave()
+        public void GoInCave()
         {
-            place = Place.Cave;
+            if (Place.Town == place)
+            {
+                place = Place.Cave;
+                Console.WriteLine("Ты пощел в пещеру... Поздравляю!!! Ты в пещере");
+                Console.WriteLine("Введи <Бой> - для битвы или <Город> - чтобы отправиться в город");
+            }
+            else
+            {
+                Console.WriteLine("Ты уже в пещере");
+            }
         }
 
         public static void ReturnHeroStats(Character Hero)
@@ -312,6 +379,22 @@ namespace test
                     Hero.Gold += 20;
                 }
             }
+        }
+    }
+
+    public class Cave
+    {
+        static public int CaveDifficult = 1;
+
+        public void Fight(Character hero)
+        {
+            Enemy enemy = new Enemy()
+            {
+                MaxHealth = Convert.ToInt32(100 * (CaveDifficult * 0.25)),
+                Health = Convert.ToInt32(100 * (CaveDifficult * 0.25)),
+                Damage = 10 * CaveDifficult
+            };
+
         }
     }
 
