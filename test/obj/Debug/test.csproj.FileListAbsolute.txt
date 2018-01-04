@@ -10,3 +10,10 @@ C:\Users\User\Desktop\Try_To_Work\C# project\Cave_Game\Cave_game\test\obj\Debug\
 C:\Users\User\Desktop\Try_To_Work\C# project\Cave_Game\Cave_game\test\bin\Debug\test.exe
 C:\Users\User\Desktop\Try_To_Work\C# project\Cave_Game\Cave_game\test\bin\Debug\test.pdb
 C:\Users\User\Desktop\Try_To_Work\C# project\Cave_Game\Cave_game\test\obj\Debug\test.csprojResolveAssemblyReference.cache
+D:\Projects\C#\Cave_game\test\bin\Debug\test.exe.config
+D:\Projects\C#\Cave_game\test\bin\Debug\test.exe
+D:\Projects\C#\Cave_game\test\bin\Debug\test.pdb
+D:\Projects\C#\Cave_game\test\obj\Debug\test.csprojResolveAssemblyReference.cache
+D:\Projects\C#\Cave_game\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+D:\Projects\C#\Cave_game\test\obj\Debug\test.exe
+D:\Projects\C#\Cave_game\test\obj\Debug\test.pdb

@@ -43,8 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Source\Charac and Enemy\Character.cs" />
+    <Compile Include="Source\Charac and Enemy\Enemy.cs" />
+    <Compile Include="Source\Equipment.cs" />
+    <Compile Include="Source\Locations\Cave.cs" />
+    <Compile Include="Source\Locations\City.cs" />
+    <Compile Include="Source\Enums\EnumsNamSpc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Controller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
